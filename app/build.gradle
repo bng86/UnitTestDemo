@@ -8,6 +8,7 @@ android {
 
         testApplicationId "tw.andyang.unittestdemo.test"
         testInstrumentationRunner "tw.andyang.unittestdemo.test.Instrumentation"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         applicationId "tw.andyang.unittestdemo"
         minSdkVersion 16

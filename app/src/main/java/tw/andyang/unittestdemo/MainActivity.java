@@ -8,14 +8,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 public class MainActivity extends AppCompatActivity {
 
-    private List<Book> books = new ArrayList<>();
+    private final ShoppingCart shoppingCart = new ShoppingCart();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,24 +43,24 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
-                    books.clear();
+                    shoppingCart.books.clear();
 
                     int book1Size = spinnerI.getSelectedItemPosition();
-                    addBooks("Book1", book1Size);
+                    shoppingCart.addBooks("Book1", book1Size);
 
                     int book2Size = spinnerII.getSelectedItemPosition();
-                    addBooks("Book2", book2Size);
+                    shoppingCart.addBooks("Book2", book2Size);
 
                     int book3Size = spinnerIII.getSelectedItemPosition();
-                    addBooks("Book3", book3Size);
+                    shoppingCart.addBooks("Book3", book3Size);
 
                     int book4Size = spinnerIIIV.getSelectedItemPosition();
-                    addBooks("Book4", book4Size);
+                    shoppingCart.addBooks("Book4", book4Size);
 
                     int book5Size = spinnerV.getSelectedItemPosition();
-                    addBooks("Book5", book5Size);
+                    shoppingCart.addBooks("Book5", book5Size);
 
-                    float amount = getAmount();
+                    float amount = shoppingCart.getAmount();
 
                     textPrice.setText(getString(R.string.price, (int) amount));
                 }
@@ -73,51 +68,4 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
-    private float getAmount() {
-
-        float amount = 0.0f;
-
-        Set<Book> bookSet = new HashSet<>();
-
-        while (books.size() != 0) {
-            bookSet.addAll(books);
-
-            float discount;
-
-            switch (bookSet.size()) {
-                case 2:
-                    discount = 0.95f;
-                    break;
-                case 3:
-                    discount = 0.9f;
-                    break;
-                case 4:
-                    discount = 0.8f;
-                    break;
-                case 5:
-                    discount = 0.75f;
-                    break;
-                default:
-                    discount = 1.0f;
-                    break;
-            }
-
-            amount += bookSet.size() * 100 * discount;
-
-            for (Book book : bookSet) {
-                books.remove(book);
-            }
-
-            bookSet.clear();
-        }
-        return amount;
-    }
-
-    private void addBooks(String bookName, int size) {
-        for (int i = 0; i < size; i++) {
-            books.add(new Book(bookName));
-        }
-    }
-
 }
