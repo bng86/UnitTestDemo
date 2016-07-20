@@ -1,6 +1,10 @@
 package tw.andyang.unittestdemo;
 
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 哈利波特一到五冊熱潮正席捲全球，世界各地的孩子都為之瘋狂。
@@ -33,6 +37,14 @@ public class PotterTest {
     @Test
     public void test_Scenario1() throws Exception {
 
+        float expected = 100.0f;
+
+        ShoppingCart cart = new ShoppingCart();
+        Book book = new Book("book1");
+        cart.addBook(book);
+        float actual = cart.getPrice();
+
+        Assert.assertEquals(expected, actual, 0.1f);
     }
 
     /**
@@ -48,6 +60,18 @@ public class PotterTest {
 
     @Test
     public void test_Scenario2() throws Exception {
+
+        float expected = 190.0f;
+
+        ShoppingCart cart = new ShoppingCart();
+        Book book1 = new Book("Book1");
+        Book book2 = new Book("Book2");
+        cart.addBook(book1);
+        cart.addBook(book2);
+        float actual = cart.getPrice();
+
+        Assert.assertEquals(expected, actual, 0.1f);
+
     }
 
     /**
@@ -125,4 +149,27 @@ public class PotterTest {
     public void test_Scenario7() throws Exception {
     }
 
+    private class ShoppingCart {
+
+        private List<Book> books = new ArrayList<>();
+
+        public void addBook(Book book) {
+            books.add(book);
+        }
+
+        public float getPrice() {
+
+            if(books.size() == 2) {
+                return 100 * books.size() * 0.95f;
+            }
+
+            return 100.0f;
+        }
+    }
+
+    private class Book {
+        public Book(String name) {
+
+        }
+    }
 }

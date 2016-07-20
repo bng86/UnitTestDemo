@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">UnitTestDemo</string>
     <string name="calculate">Calculate</string>
-    <string name="price">price</string>
+    <string name="price">price : %d</string>
 </resources>
