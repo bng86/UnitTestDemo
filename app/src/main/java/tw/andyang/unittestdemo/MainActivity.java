@@ -65,47 +65,53 @@ public class MainActivity extends AppCompatActivity {
                     int book5Size = spinnerV.getSelectedItemPosition();
                     addBooks("Book5", book5Size);
 
-                    float amount = 0.0f;
-
-                    Set<Book> bookSet = new HashSet<>();
-
-                    while (books.size() != 0) {
-                        bookSet.addAll(books);
-
-                        float discount;
-
-                        switch (bookSet.size()) {
-                            case 2:
-                                discount = 0.95f;
-                                break;
-                            case 3:
-                                discount = 0.9f;
-                                break;
-                            case 4:
-                                discount = 0.8f;
-                                break;
-                            case 5:
-                                discount = 0.75f;
-                                break;
-                            default:
-                                discount = 1.0f;
-                                break;
-                        }
-
-                        amount += bookSet.size() * 100 * discount;
-
-                        for (Book book : bookSet) {
-                            books.remove(book);
-                        }
-
-                        bookSet.clear();
-                    }
+                    float amount = getAmount();
 
                     textPrice.setText(getString(R.string.price, (int) amount));
                 }
             });
         }
 
+    }
+
+    private float getAmount() {
+
+        float amount = 0.0f;
+
+        Set<Book> bookSet = new HashSet<>();
+
+        while (books.size() != 0) {
+            bookSet.addAll(books);
+
+            float discount;
+
+            switch (bookSet.size()) {
+                case 2:
+                    discount = 0.95f;
+                    break;
+                case 3:
+                    discount = 0.9f;
+                    break;
+                case 4:
+                    discount = 0.8f;
+                    break;
+                case 5:
+                    discount = 0.75f;
+                    break;
+                default:
+                    discount = 1.0f;
+                    break;
+            }
+
+            amount += bookSet.size() * 100 * discount;
+
+            for (Book book : bookSet) {
+                books.remove(book);
+            }
+
+            bookSet.clear();
+        }
+        return amount;
     }
 
     private void addBooks(String bookName, int size) {
