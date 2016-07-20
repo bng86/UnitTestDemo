@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String[] number = new String[] {"0", "1", "2", "3", "4", "5"};
+        String[] number = new String[]{"0", "1", "2", "3", "4", "5"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_dropdown_item_1line, number);
 
         final Spinner spinnerI = (Spinner) findViewById(R.id.spinnerI);
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         final Spinner spinnerIII = (Spinner) findViewById(R.id.spinnerIII);
         spinnerIII.setAdapter(adapter);
 
-        final Spinner spinnerIIIV = (Spinner) findViewById(R.id.spinnerIIIV);
+        final Spinner spinnerIIIV = (Spinner) findViewById(R.id.spinnerIV);
         spinnerIIIV.setAdapter(adapter);
 
         final Spinner spinnerV = (Spinner) findViewById(R.id.spinnerV);
@@ -94,14 +94,14 @@ public class MainActivity extends AppCompatActivity {
 
                         amount += bookSet.size() * 100 * discount;
 
-                        for (Book book : bookSet){
+                        for (Book book : bookSet) {
                             books.remove(book);
                         }
 
                         bookSet.clear();
                     }
 
-                    textPrice.setText("price : " + amount);
+                    textPrice.setText(getString(R.string.price, (int) amount));
                 }
             });
         }
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void addBooks(String bookName, int size) {
-        for (int i = 0; i < size; i++){
+        for (int i = 0; i < size; i++) {
             books.add(new Book(bookName));
         }
     }

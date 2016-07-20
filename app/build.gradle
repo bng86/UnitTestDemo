@@ -5,6 +5,10 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
+
+        testApplicationId "tw.andyang.unittestdemo.test"
+        testInstrumentationRunner "tw.andyang.unittestdemo.test.Instrumentation"
+
         applicationId "tw.andyang.unittestdemo"
         minSdkVersion 16
         targetSdkVersion 23
@@ -17,11 +21,29 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    sourceSets {
+        androidTest {
+            assets.srcDirs = ['src/androidTest/assets']
+        }
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.4.0'
+
+    //test
     testCompile 'junit:junit:4.12'
     testCompile 'org.mockito:mockito-all:1.10.19'
+    testCompile 'org.hamcrest:hamcrest-all:1.3'
+    testCompile 'org.powermock:powermock-module-junit4:1.6.2'
+    testCompile 'org.powermock:powermock-api-mockito:1.6.2'
+    testCompile 'org.powermock:powermock-module-junit4-rule:1.6.2'
+    testCompile 'org.powermock:powermock-classloading-xstream:1.6.2'
+    //ui testing
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.0'
+    androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
+    androidTestCompile 'info.cukes:cucumber-android:1.2.0@jar'
+    androidTestCompile 'info.cukes:cucumber-picocontainer:1.2.0'
 }
