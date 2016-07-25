@@ -3,7 +3,6 @@ package tw.andyang.unittestdemo.test;
 import android.support.annotation.IdRes;
 import android.test.ActivityInstrumentationTestCase2;
 
-import cucumber.api.CucumberOptions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -20,10 +19,10 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.IsInstanceOf.instanceOf;
 
-@CucumberOptions(features = "features")
-public class PotterUiTest extends ActivityInstrumentationTestCase2<MainActivity> {
+//@CucumberOptions(features = "features/potter")
+public class PotterUITest extends ActivityInstrumentationTestCase2<MainActivity> {
 
-    public PotterUiTest() {
+    public PotterUITest() {
         super(MainActivity.class);
     }
 
@@ -32,28 +31,30 @@ public class PotterUiTest extends ActivityInstrumentationTestCase2<MainActivity>
         assertNotNull(getActivity());
     }
 
-//    @When("^買第(\\d+)集(\\d+)本$")
-//    public void 買第集本(int episode, int amount) throws Throwable {
-//        switch (episode) {
-//            case 1:
-//                selectSpinner(R.id.spinnerI, amount);
-//                break;
-//            case 2:
-//                selectSpinner(R.id.spinnerII, amount);
-//                break;
-//            case 3:
-//                selectSpinner(R.id.spinnerIII, amount);
-//                break;
-//            case 4:
-//                selectSpinner(R.id.spinnerIV, amount);
-//                break;
-//            case 5:
-//                selectSpinner(R.id.spinnerV, amount);
-//                break;
-//        }
-//    }
+    @When("^買第(\\d+)集(\\d+)本$")
+    public void 買第集本(int episode, int amount) throws Throwable {
+        switch (episode) {
+            case 1:
+                selectSpinner(R.id.spinnerI, amount);
+                break;
+            case 2:
+                selectSpinner(R.id.spinnerII, amount);
+                break;
+            case 3:
+                selectSpinner(R.id.spinnerIII, amount);
+                break;
+            case 4:
+                selectSpinner(R.id.spinnerIV, amount);
+                break;
+            case 5:
+                selectSpinner(R.id.spinnerV, amount);
+                break;
+        }
+    }
 
     private void selectSpinner(@IdRes int id, int amount) {
+        if(amount == 0)
+            return;
         onView(withId(id)).perform(click());
         onData(allOf(is(instanceOf(String.class)), is(String.valueOf(amount)))).perform(click());
     }

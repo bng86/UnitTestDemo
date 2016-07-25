@@ -4,9 +4,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
+import tw.andyang.unittestdemo.cart.Cart;
 
 /**
  * 哈利波特一到五冊熱潮正席捲全球，世界各地的孩子都為之瘋狂。
@@ -22,7 +22,7 @@ import java.util.Set;
  * 你的任務是，設計一個哈利波特的購物車，能提供最便宜的價格給這些爸爸媽媽。
  */
 
-public class TDDPotterTest {
+public class PotterTestAnswer {
 
 
     /**
@@ -39,9 +39,9 @@ public class TDDPotterTest {
     @Test
     public void test_Scenario1() throws Exception {
         Cart cart = new Cart();
-        ArrayList<Book> books = new ArrayList<Book>() {
+        ArrayList<tw.andyang.unittestdemo.cart.Book> books = new ArrayList<tw.andyang.unittestdemo.cart.Book>() {
             {
-                add(new Book("Potter I"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter I"));
             }
         };
         cart.setBooks(books);
@@ -64,10 +64,10 @@ public class TDDPotterTest {
     @Test
     public void test_Scenario2() throws Exception {
         Cart cart = new Cart();
-        List<Book> books = new ArrayList<Book>() {
+        List<tw.andyang.unittestdemo.cart.Book> books = new ArrayList<tw.andyang.unittestdemo.cart.Book>() {
             {
-                add(new Book("Potter I"));
-                add(new Book("Potter II"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter I"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter II"));
             }
         };
         cart.setBooks(books);
@@ -90,11 +90,11 @@ public class TDDPotterTest {
     @Test
     public void test_Scenario3() throws Exception {
         Cart cart = new Cart();
-        List<Book> books = new ArrayList<Book>() {
+        List<tw.andyang.unittestdemo.cart.Book> books = new ArrayList<tw.andyang.unittestdemo.cart.Book>() {
             {
-                add(new Book("Potter I"));
-                add(new Book("Potter II"));
-                add(new Book("Potter III"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter I"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter II"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter III"));
             }
         };
         cart.setBooks(books);
@@ -117,12 +117,12 @@ public class TDDPotterTest {
     @Test
     public void test_Scenario4() throws Exception {
         Cart cart = new Cart();
-        List<Book> books = new ArrayList<Book>() {
+        List<tw.andyang.unittestdemo.cart.Book> books = new ArrayList<tw.andyang.unittestdemo.cart.Book>() {
             {
-                add(new Book("Potter I"));
-                add(new Book("Potter II"));
-                add(new Book("Potter III"));
-                add(new Book("Potter VI"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter I"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter II"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter III"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter VI"));
             }
         };
         cart.setBooks(books);
@@ -145,13 +145,13 @@ public class TDDPotterTest {
     @Test
     public void test_Scenario5() throws Exception {
         Cart cart = new Cart();
-        List<Book> books = new ArrayList<Book>() {
+        List<tw.andyang.unittestdemo.cart.Book> books = new ArrayList<tw.andyang.unittestdemo.cart.Book>() {
             {
-                add(new Book("Potter I"));
-                add(new Book("Potter II"));
-                add(new Book("Potter III"));
-                add(new Book("Potter VI"));
-                add(new Book("Potter V"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter I"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter II"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter III"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter VI"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter V"));
             }
         };
         cart.setBooks(books);
@@ -174,12 +174,12 @@ public class TDDPotterTest {
     @Test
     public void test_Scenario6() throws Exception {
         Cart cart = new Cart();
-        List<Book> books = new ArrayList<Book>() {
+        List<tw.andyang.unittestdemo.cart.Book> books = new ArrayList<tw.andyang.unittestdemo.cart.Book>() {
             {
-                add(new Book("Potter I"));
-                add(new Book("Potter II"));
-                add(new Book("Potter III"));
-                add(new Book("Potter III"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter I"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter II"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter III"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter III"));
             }
         };
         cart.setBooks(books);
@@ -202,13 +202,13 @@ public class TDDPotterTest {
     @Test
     public void test_Scenario7() throws Exception {
         Cart cart = new Cart();
-        List<Book> books = new ArrayList<Book>() {
+        List<tw.andyang.unittestdemo.cart.Book> books = new ArrayList<tw.andyang.unittestdemo.cart.Book>() {
             {
-                add(new Book("Potter I"));
-                add(new Book("Potter II"));
-                add(new Book("Potter II"));
-                add(new Book("Potter III"));
-                add(new Book("Potter III"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter I"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter II"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter II"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter III"));
+                add(new tw.andyang.unittestdemo.cart.Book("Potter III"));
             }
         };
         cart.setBooks(books);
@@ -217,73 +217,5 @@ public class TDDPotterTest {
         Assert.assertEquals(expected, actual, 0.0f);
     }
 
-    private class Cart {
 
-        private List<Book> books;
-
-        public float getPrice() {
-
-            float amount = 0.0f;
-
-            Set<Book> bookSet = new HashSet<>();
-            while (books.size() != 0) {
-                bookSet.addAll(books);
-                amount += bookSet.size() * 100 * getDiscount(bookSet.size());
-
-                for (Book book : bookSet){
-                    books.remove(book);
-                }
-
-                bookSet.clear();
-            }
-
-            return amount;
-        }
-
-        public void setBooks(List<Book> books) {
-            this.books = books;
-        }
-
-        private float getDiscount(int size) {
-
-            switch (size) {
-                case 2:
-                    return 0.95f;
-                case 3:
-                    return 0.9f;
-                case 4:
-                    return 0.8f;
-                case 5:
-                    return 0.75f;
-                default:
-                    return 1.0f;
-            }
-        }
-    }
-
-
-    private class Book {
-
-        private String name;
-
-        public Book(String name) {
-            this.name = name;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-
-            Book book = (Book) o;
-
-            return name != null ? name.equals(book.name) : book.name == null;
-
-        }
-
-        @Override
-        public int hashCode() {
-            return name != null ? name.hashCode() : 0;
-        }
-    }
 }

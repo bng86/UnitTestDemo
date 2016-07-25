@@ -10,53 +10,53 @@ Feature: 哈利波特一到五冊熱潮正席捲全球，世界各地的孩子�
   那麼那三本將享有10%的折扣，但重複的那一本，則仍須100元。
   你的任務是，設計一個哈利波特的購物車，能提供最便宜的價格給這些爸爸媽媽。
 
-#  Scenario: 第一集買了一本，其他都沒買，價格應為100*1=100元
-#    Given 打開 MainActivity
-#    When 買第1集1本
-#    When 計算價格
-#    Then 總共100元
-#
-#  Scenario: 第一集買了一本，第二集也買了一本，價格應為100*2*0.95=190
-#    Given 打開 MainActivity
-#    When 買第1集1本
-#    When 買第2集1本
-#    When 計算價格
-#    Then 總共190元
-#
-#  Scenario: 一二三集各買了一本，價格應為100*3*0.9=270
-#    Given 打開 MainActivity
-#    When 買第1集1本
-#    When 買第2集1本
-#    When 買第3集1本
-#    When 計算價格
-#    Then 總共270元
-#
-#  Scenario: 一二三四集各買了一本，價格應為100*4*0.8=320
-#    Given 打開 MainActivity
-#    When 買第1集1本
-#    When 買第2集1本
-#    When 買第3集1本
-#    When 買第4集1本
-#    When 計算價格
-#    Then 總共320元
-#
-#  Scenario: 一次買了整套，一二三四五集各買了一本，價格應為100*5*0.75=375
-#    Given 打開 MainActivity
-#    When 買第1集1本
-#    When 買第2集1本
-#    When 買第3集1本
-#    When 買第4集1本
-#    When 買第5集1本
-#    When 計算價格
-#    Then 總共375元
-#
-#  Scenario: 一二集各買了一本，第三集買了兩本，價格應為100*3*0.9 + 100 = 370
-#    Given 打開 MainActivity
-#    When 買第1集1本
-#    When 買第2集1本
-#    When 買第3集2本
-#    When 計算價格
-#    Then 總共370元
+  Scenario: 第一集買了一本，其他都沒買，價格應為100*1=100元
+    Given 打開 MainActivity
+    When 買第1集1本
+    When 計算價格
+    Then 總共100元
+
+  Scenario: 第一集買了一本，第二集也買了一本，價格應為100*2*0.95=190
+    Given 打開 MainActivity
+    When 買第1集1本
+    When 買第2集1本
+    When 計算價格
+    Then 總共190元
+
+  Scenario: 一二三集各買了一本，價格應為100*3*0.9=270
+    Given 打開 MainActivity
+    When 買第1集1本
+    When 買第2集1本
+    When 買第3集1本
+    When 計算價格
+    Then 總共270元
+
+  Scenario: 一二三四集各買了一本，價格應為100*4*0.8=320
+    Given 打開 MainActivity
+    When 買第1集1本
+    When 買第2集1本
+    When 買第3集1本
+    When 買第4集1本
+    When 計算價格
+    Then 總共320元
+
+  Scenario: 一次買了整套，一二三四五集各買了一本，價格應為100*5*0.75=375
+    Given 打開 MainActivity
+    When 買第1集1本
+    When 買第2集1本
+    When 買第3集1本
+    When 買第4集1本
+    When 買第5集1本
+    When 計算價格
+    Then 總共375元
+
+  Scenario: 一二集各買了一本，第三集買了兩本，價格應為100*3*0.9 + 100 = 370
+    Given 打開 MainActivity
+    When 買第1集1本
+    When 買第2集1本
+    When 買第3集2本
+    When 計算價格
+    Then 總共370元
 
   Scenario Outline:
     Given 打開 MainActivity

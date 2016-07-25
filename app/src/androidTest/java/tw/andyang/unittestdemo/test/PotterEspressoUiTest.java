@@ -25,7 +25,7 @@ import static org.hamcrest.core.IsInstanceOf.instanceOf;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class PotterEspressoUiTest{
+public class PotterEspressoUITest {
 
     @Rule
     public ActivityTestRule<MainActivity> testRule = new ActivityTestRule<>(MainActivity.class);
